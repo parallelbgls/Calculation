@@ -56,10 +56,11 @@ Output run_func_value
 ```
 
 ## Constant
-In Calculation, constant name can be started as number. We only regard numbers and dot only as number and numbers and symbols only as Calc expression.
-Otherwise it's constant name.
+We only regard numbers & dot only as number and numbers & symbols only as Calc expression. Expect for those keywords, otherwise it's a constant name.
 
 By the way, there is no variable in Calculation.
+
+The constant name could using alphabet, number and underslash. In Calculation, constant name <b>can be started</b> with number. 
 
 ### Lifecycle
 Unlike most of the functional language, Calculation has lifecycle.
@@ -148,6 +149,17 @@ Def ans = i[0..9](+) // i0 + i1 + i2 + i3 + i4 + i5 + i6 + i7 + i8 + i9
 Output ans // 45
 ```
 
+### Recursive Function
+Recursive calling is not allowed in Calculation.
+
+### Extend Function
+Extend Function is a special function with 1 and more input and output.
+```Calculation
+Def fabonacci[1..6] : number = (+)(1,1)$6
+Def 2d_all1[1..5][1..5] : number = 1$25
+Def 2d_123repeat[1..5][1..5] : number = [1..3]$25
+```
+
 ### Union Function
 Union Function is a special function that should using x inputs and x-1 output(s).
 ```Calculation
@@ -177,3 +189,17 @@ if your number enum is on the left side of "=" to define type, that means, if ca
 ```Calculation
 Def calc[1..5] : [1..9] = number_enum * 2 // calc3, calc4, calc5 are nil
 ```
+
+### Enum for static length or dynamic length
+Dynamic length is like [a..aa] or [1..12]<br>
+Static length is like [aa..bb] or [01..12]<br>
+For dynamic length, like [1..10][1..10] for continus using is not allowed. You should add an alphabet or "_" between them.<br>
+Or like [a..aa][a..aa] is also not allowed. You should add a number or "_" between them.
+Static length could be used continusly.
+
+## Appendix
+
+### 3 modes for nil
+Restrict Mode: nil in calculation will raise error.<br>
+Default Mode: nil in calculation will be translated to default value that defined by user.<br>
+Random Mode: nil in calculation will be translated to a random value, generation fomula is defined by user.
