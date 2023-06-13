@@ -173,7 +173,7 @@ Number enum can join calculation in expressions.
 Def calc[1..5] = number_enum * 2
 ```
 
-if you use number enum is on the left side of "=" to define type, that means, if calc value does not exist in enum type, it will return nil.
+if your number enum is on the left side of "=" to define type, that means, if calc value does not exist in enum type, it will return nil.
 ```Calculation
 Def calc[1..5] : [1..9] = number_enum * 2 // calc3, calc4, calc5 are nil
 ```
