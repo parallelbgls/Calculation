@@ -23,7 +23,7 @@ Output allQuantity, notBad
 Calculation will be written in string and can be used in most of the existing programming language like SQL.
 
 ## Context
-Currently, I'm consider using Calculation in dictionary context.
+Currently, I'm consider using Calculation in dictionary context.<br>
 Like
 
 ```C#
@@ -40,7 +40,7 @@ var notBad = calcDic["notBad"]; // 80
 ## Type
 There are only four types in Calculation: number, enum, function and nil.
 Calculation regards number as one type, no difference between float and integer.
-Enum is a set of multiple values. e.g. (Good|Bad), (Start|Stop|Running), [1..10], [a..z]
+Enum is a set of multiple values. e.g. (Good|Bad), (Start|Stop|Running), [1..10], [a..z], [A..Z]
 Nil is a value that not been set. It can be appended to another variable but cannot join calculation. In Calculation number divide zero will be nil.
 Function is a basic type that has input, output and process.
 ```Calculation
@@ -48,7 +48,7 @@ Input nil
 Def func_sample: function = 
 {
     Input x: number, y:number
-    Def answer: number = sqr(x+y)
+    Def answer: number = (x+y)^2
     Output answer
 }
 Def run_func_value: number = func_sample(1,2)
@@ -74,7 +74,7 @@ Input nil
 Def func_sample: function = 
 {
     Input x: number, y: number
-    Def answer = sqr(x+y)
+    Def answer = (x+y)^2
     Output answer
 }
 Def func_sample_2: function =
@@ -125,7 +125,7 @@ Output ans // 45
 ```
 
 ### Union Function
-Union Function is a special function that should using 2 input and 1 output.
+Union Function is a special function that should using x inputs and x-1 output(s).
 ```
 Def add: function
 {
