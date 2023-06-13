@@ -194,7 +194,7 @@ Def calc[1..5] : [1..9] = number_enum * 2 // calc3, calc4, calc5 are nil
 Dynamic length is like [a..aa] or [1..12]<br>
 Static length is like [aa..bb] or [01..12]<br>
 For dynamic length, like [1..10][1..10] for continus using is not allowed. You should add an alphabet or "_" between them.<br>
-Or like [a..aa][a..aa] is also not allowed. You should add a number or "_" between them.
+Or like [a..aa][a..aa] is also not allowed. You should add a number or "_" between them.<br>
 Static length could be used continusly.
 
 ## Appendix
