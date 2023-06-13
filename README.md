@@ -80,6 +80,7 @@ Def func_sample_2: function =
 }
 Def answer: number = function_sample_2(3, func_sample) //outside lifecycle define again
 Output answer
+```
 
 ## Notice
 1. Input could be nil, but output could not be nil.
