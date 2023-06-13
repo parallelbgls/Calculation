@@ -11,7 +11,7 @@ Def bad: number = foodFeeding - good - normal
 Def goodRate: number = good / foodFeeding * 100
 Def normalRate: number = normal / foodFeeding * 100
 Def badRate: number = bad / foodFeeding * 100
-Def allQuantity: enum(Good|Bad) =
+Def allQuantity: (Good|Bad) =
 {
     Good <- goodRate > 60 or goodRate + normalRate > 70
     Bad <- otherwise
@@ -47,7 +47,7 @@ Function is a basic type that has input, output and process.
 Input nil
 Def func_sample: function = 
 {
-    Input x: number, y:number
+    Input x: number, y: number
     Def answer: number = (x+y)^2
     Output answer
 }
@@ -122,7 +122,7 @@ Output Value_Output[1..4]
 
 You can use multiple enum in a single Variable.
 ```Calculation
-Input Value[a..b][1..2] : enum(ON|ON[a..b]|OFF|OFF[a..b]) // which means Valuea1, Valuea2, Valueb1, Valueb2 can be set as ON, ONa, ONb, OFF, OFFa and OFFb
+Input Value[a..b][1..2] : (ON|ON[a..b]|OFF|OFF[a..b]) // which means Valuea1, Valuea2, Valueb1, Valueb2 can be set as ON, ONa, ONb, OFF, OFFa and OFFb
 ...
 ```
 
@@ -164,7 +164,7 @@ Output union_ans // 45
 ### Number Enum
 If your enum content are all numbers, this is regarded as number enum.
 ```Calculation
-Def number_enum : enum(1|3|5|6|8)
+Def number_enum : (1|3|5|6|8)
 Def number_enum_2 : [1..9]
 ```
 
