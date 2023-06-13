@@ -41,7 +41,7 @@ var notBad = calcDic["notBad"]; // 80
 There are only four types in Calculation: number, enum, function and nil.
 Calculation regards number as one type, no difference between float and integer.
 Enum is a set of multiple values. e.g. (Good|Bad), (Start|Stop|Running), [1..10], [a..z], [A..Z]
-Nil is a value that not been set. It can be appended to another variable but cannot join calculation. In Calculation number divide zero will be nil.
+Nil is a value that not been set. It can be appended to another constant but cannot join calculation. In Calculation number divide zero will be nil.
 Function is a basic type that has input, output and process.
 ```Calculation
 Input nil
@@ -55,9 +55,31 @@ Def run_func_value: number = func_sample(1,2)
 Output run_func_value
 ```
 
-## Variable
-In Calculation, variable name can be started as number. We only regard numbers and dot only as number and numbers and symbols only as Calc expression.
-Otherwise it's variable name.
+## Constant
+In Calculation, constant name can be started as number. We only regard numbers and dot only as number and numbers and symbols only as Calc expression.
+Otherwise it's constant name.
+
+By the way, there is no variable in Calculation.
+
+### Lifecycle
+Unlike most of the functional language, Calculation has lifecycle.
+If an constant leave the lifecycle and been removed, it could be defined again outside lifecycle.
+```Calculation
+Input nil
+Def func_sample: function = 
+{
+    Input x: number, y: number
+    Def answer = (x+y)^2
+    Output answer // lifecycle remove
+}
+Def func_sample_2: function =
+{
+    Input a: number, b: func(x: number,y: number->ans: number)
+    Def answer: number = b(a, 2)
+    Output answer // lifecycle remove
+}
+Def answer: number = function_sample_2(3, func_sample) //outside lifecycle define again
+Output answer
 
 ## Notice
 1. Input could be nil, but output could not be nil.
@@ -79,8 +101,9 @@ Def func_sample: function =
 }
 Def func_sample_2: function =
 {
-    input a: number, b: func(x: number,y: number->ans: number)
+    Input a: number, b: func(x: number,y: number->ans: number)
     Def answer: number = b(a, 2)
+    Output answer
 }
 Def run_func_value: number = function_sample_2(3, func_sample)
 Output a
@@ -126,7 +149,7 @@ Output ans // 45
 
 ### Union Function
 Union Function is a special function that should using x inputs and x-1 output(s).
-```
+```Calculation
 Def add: function
 {
     Input x: number, y: number
@@ -135,3 +158,21 @@ Def add: function
 }
 Def union_ans: number = [0..9](add)
 Output union_ans // 45
+```
+
+### Number Enum
+If your enum content are all numbers, this is regarded as number enum.
+```Calculation
+Def number_enum : enum(1|3|5|6|8)
+Def number_enum_2 : [1..9]
+```
+
+Number enum can join calculation in expressions.
+```Calculation
+Def calc[1..5] = number_enum * 2
+```
+
+if you use number enum is on the left side of "=" to define type, that means, if calc value does not exist in enum type, it will return nil.
+```Calculation
+Def calc[1..5] : [1..9] = number_enum * 2 // calc3, calc4, calc5 are nil
+```
