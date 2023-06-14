@@ -252,6 +252,13 @@ For dynamic length, like [1..10][1..10] for continus using is not allowed. You s
 Or like [a..aa][a..aa] is also not allowed. You should add a number or underslash between them.<br>
 Static length could be used continusly.
 
+### Enum definition
+You can rename an enum to another name
+```Calculation
+EnumDef status: (Running|Stopping|Stopped)
+Def runningStatus: status
+```
+
 ## Appendix
 
 ### 3 modes for nil
