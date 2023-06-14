@@ -140,6 +140,51 @@ Def ans: allQuantity[1..4] =
 Output ans // allQuantity4
 ```
 
+### Judgement Expression
+In Calculation, there are two different types of expression: definition expression and judgement expression.
+```Calculation
+Def x: number = 1+2 // definition expression
+Def y: (ON|OFF) =
+{
+    ON <- x > 3 // judgement expression
+    OFF <- otherwise
+}    
+```
+
+But remember it will return a number if you judge multiple constants.
+```Calculation
+Def y: number = x[1..10] > 3 // Count of x1 to x10 larger than 3
+```
+
+Judge multiple answer to one input will return multiple constants.
+```Calculation
+Def x[1..10] : number = 5
+Def y[1..10] : (ON|OFF) =
+{
+    ON <- x > [0..9] // y1 to y5 ON and y6 to y10 OFF
+    OFF <- otherwise
+}
+```
+
+Judge multiple answer to multiple input will return multiple 1 by 1 matching answer constants.
+```Calculation
+Def x[1..10] : [1..10]
+Def y[1..10] : (ON|OFF) =
+{
+    ON <- x[1..10] > 5$10 // y1 to y5 OFF and y6 to y10 ON
+    OFF <- otherwise
+}
+```
+
+This code is super not recommanded
+```Calculation
+Def y[1..10] : allQuantity[1..4] = 
+{
+    // allQuantity[1..2] <- ...  //You can append 20 judgements (10 by 2) to it but we super not recommand that, it will let code not readable
+    allQuantity1 <- ...
+    allQuantity2 <- ... //This is recommanded
+}
+
 ### Write Code like for
 e.g.
 ```Calculation
@@ -150,7 +195,7 @@ Output ans // 45
 ```
 
 ### Enum Follow
-In a definition, you can follow a enum in the next enums.
+In an expression, you can follow a enum in the next enums.
 ```Calculation
 Input nil
 Def i[1..5]: number = [1..5]
