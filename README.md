@@ -20,7 +20,7 @@ Def notBad: number = good + normal
 Output allQuantity, notBad
 ```
 
-Calculation will be written in string and can be used in most of the existing programming language like SQL.
+Calculation will be written in string and can be used in most of the existing programming language like C#, same to SQL.
 
 ## Context
 Currently, I'm consider using Calculation in dictionary context.<br>
