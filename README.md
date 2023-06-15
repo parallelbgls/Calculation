@@ -158,7 +158,7 @@ Def y: number = x[1..10] > 3 // Count of x1 to x10 larger than 3
 
 Judge multiple answer to one input will return multiple constants.
 ```Calculation
-Def x[1..10] : number = 5
+Def x : number = 5
 Def y[1..10] : (ON|OFF) =
 {
     ON <- x > [0..9] // y1 to y5 ON and y6 to y10 OFF
