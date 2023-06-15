@@ -196,7 +196,7 @@ Output ans // 45
 ```
 
 ### Enum Follow
-In an expression, you can follow a enum in the next enums.
+In a definition, you can follow a enum in the next enums.
 ```Calculation
 Input nil
 Def i[1..5]: number = [1..5]
