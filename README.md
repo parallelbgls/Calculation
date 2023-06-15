@@ -13,7 +13,7 @@ Def normalRate: number = normal / foodFeeding * 100
 Def badRate: number = bad / foodFeeding * 100
 Def allQuantity: (Good|Bad) =
 {
-    Good <- goodRate > 60 or goodRate + normalRate > 70
+    Good <- goodRate > 60 || goodRate + normalRate > 70
     Bad <- otherwise
 }
 Def notBad: number = good + normal
