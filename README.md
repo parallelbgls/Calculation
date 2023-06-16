@@ -218,7 +218,7 @@ Def 2d_123repeat[1..5][1..5] : number = [1..3]$25
 ### Union Function
 Union Function is a special function that should using x inputs and x-1 output(s).
 ```Calculation
-Def add: function
+Def add: function =
 {
     Input x: number, y: number
     Def ans: number = x + y
@@ -253,10 +253,10 @@ Or like [a..aa][a..aa] is also not allowed. You should add a number or underslas
 Static length could be used continusly.
 
 ### Enum definition
-You can rename an enum to another name
+You can rename an enum to another name, To use enum definition, add '[]' outside.
 ```Calculation
 EnumDef status: (Running|Stopping|Stopped)
-Def runningStatus: status
+Def runningStatus: [status]
 ```
 
 ## Appendix
