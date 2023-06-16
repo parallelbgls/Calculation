@@ -70,7 +70,7 @@ Input nil
 Def func_sample: function = 
 {
     Input x: number, y: number
-    Def answer = (x+y)^2
+    Def answer: number = (x+y)^2
     Output answer // lifecycle remove
 }
 Def func_sample_2: function =
@@ -98,7 +98,7 @@ Input nil
 Def func_sample: function = 
 {
     Input x: number, y: number
-    Def answer = (x+y)^2
+    Def answer: number = (x+y)^2
     Output answer
 }
 Def func_sample_2: function =
