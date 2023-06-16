@@ -191,7 +191,7 @@ e.g.
 ```Calculation
 Input nil
 Def i[0..9]: number = [0..9]
-Def ans = i[0..9](+) // i0 + i1 + i2 + i3 + i4 + i5 + i6 + i7 + i8 + i9
+Def ans: number = i[0..9](+) // i0 + i1 + i2 + i3 + i4 + i5 + i6 + i7 + i8 + i9
 Output ans // 45
 ```
 
@@ -200,7 +200,7 @@ In a definition, you can follow a enum in the next enums.
 ```Calculation
 Input nil
 Def i[1..5]: number = [1..5]
-Def ans = (i[1..5] ^ 2 + i[<-(1)])(+)
+Def ans: number = (i[1..5] ^ 2 + i[<-(1)])(+)
 Output ans // 70
 ```
 
