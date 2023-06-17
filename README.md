@@ -211,6 +211,7 @@ Recursive calling is not allowed in Calculation.
 Extend Function is a special function with 1 and more input and output.
 ```Calculation
 Def fabonacci[1..6] : number = (+)(1,1)$6
+Def fabonacci_2[1..6] : number = add(1,1)$6
 Def 2d_all1[1..5][1..5] : number = 1$25
 Def 2d_123repeat[1..5][1..5] : number = [1..3]$25
 ```
